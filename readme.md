@@ -11,7 +11,10 @@ Setting up unit testing:
   - "test": "karma start",
 
 Run first test:
-- $ npm test
+- `$ npm test`
+
+Add react-addons-test (must match react/react-dom package version you're using)
+- `$ npm install react-addons-test-utils@0.14.6 --save-dev` 
 
 ---
 Udemy Tutorial:
