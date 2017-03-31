@@ -14,12 +14,14 @@ describe('Clock', () => {
   
   describe('render', () => {
     it('should render clock to output', () => {
+      // we need to render the Clock into virtual Chrome instance to test this function out
       const clock = TestUtils.renderIntoDocument(<Clock totalSeconds={62}/>);
       
       // convert to jQuery object to easily find text value
       const $el = $(ReactDOM.findDOMNode(clock));
       const actualText = $el.find('.clock-text').text();
       
+      // assert
       expect(actualText).toBe('01:02');
     });
   });
@@ -27,7 +29,7 @@ describe('Clock', () => {
   // test formatSeconds function
   describe('formatSeconds', () => {
     it('should format seconds', () => {
-      // we need to render the Clock to test this function out
+      
       const clock = TestUtils.renderIntoDocument(<Clock/>);
       
       const seconds = 615; // (10:15)
