@@ -5,7 +5,7 @@ const Timer = React.createClass({
   render: () => {
     return (
       <div>
-        <p>Timer</p>
+        <h1 className="page-title">Timer</h1>
         <Clock totalSeconds={129} />
       </div>
     );
