@@ -10,6 +10,9 @@ const Countdown = React.createClass({
       countdownStatus: 'stopped'
     };
   },
+  componentWillUpdate: function (nextProps, nextState) {
+  
+  },
   componentDidUpdate: function (prevProps, prevState) { // lifecycle
     if (this.state.countdownStatus !== prevState.countdownStatus) { // if not 'stopped'
       switch (this.state.countdownStatus) {
@@ -26,12 +29,28 @@ const Countdown = React.createClass({
       }
     }
   },
+  componentWillMount: function () {
+    //console.log('Component will mount.');
+  },
+  componentDidMount: function () {
+    //console.log('Component did mount.');
+  },
+  componentWillUnmount: function () {
+    //console.log('Component will unmount.');
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
   startTimer: function () {
     this.timer = setInterval(() => {
       let newCount = this.state.count - 1;
       this.setState({
         count: newCount >= 0 ? newCount : 0 // ternary operator
       });
+      if (newCount === 0) {
+        this.setState({
+          countdownStatus: 'stopped' // returns to form input
+        });
+      }
     }, 1000);
   },
   handleSetCountdown: function (seconds) {
