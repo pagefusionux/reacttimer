@@ -5,8 +5,6 @@ const CountdownForm = React.createClass({
     e.preventDefault();
     const strSeconds = this.refs.seconds.value;
     
-    console.log('input count', $('input').length);
-    
     if (strSeconds.match(/^[0-9]*$/)) {
       // do function passed down from parent (via props)
       this.refs.seconds.value = '';
